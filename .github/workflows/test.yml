@@ -1,0 +1,34 @@
+name: Build and push
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  
+  build-docker:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Set up Node.js 18.x
+        uses: actions/setup-node@v2
+
+      - name: Checkout
+        uses: actions/checkout@v3.5.3
+        with:
+          fetch-depth: 0
+
+      - name: Docker Login
+        uses: docker/login-action@v2.2.0
+        with:
+          username: codingcogs
+          password: 55rwyZ#8g%eM.u9
+
+      - name: Build and push to DockerHub
+        uses: docker/build-push-action@v4.1.1
+        with:
+          context: .
+          push: true
+          tags: codingcogs/flutter-web:latest,codingcogs/flutter-web:3.13.6
