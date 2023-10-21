@@ -31,4 +31,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: codingcogs/flutter-web:latest,codingcogs/flutter-web:3.13.6
+          tags: codingcogs/flutter-web:latest,codingcogs/flutter-web:3.13.7
